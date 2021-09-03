@@ -1,21 +1,31 @@
 {
-	"emulators": {
-		"default": {
-			"port": 3569,
-			"serviceAccount": "emulator-account"
-		}
+	"contracts": {
+		"ArtContract": "./cadence/contracts/ArtContract.cdc",
+		"FUSD": "./cadence/contracts/FUSD.cdc",
+		"NonFungibleToken": "./cadence/contracts/NonFungibleToken.cdc",
+		"FungibleToken":  "./cadence/contracts/FungibleToken.cdc"
 	},
-	"contracts": {},
 	"networks": {
-		"emulator": "127.0.0.1:3569",
 		"mainnet": "access.mainnet.nodes.onflow.org:9000",
 		"testnet": "access.devnet.nodes.onflow.org:9000"
 	},
+
 	"accounts": {
-		"emulator-account": {
-			"address": "f8d6e0586b0a20c7",
-			"key": "83c09c8550a4d8dba461664eb61bb05f4ae32a6194363d6c0f73bf04f2b4641b"
+        "testnet-account": {
+            "address": "0x7cf57145fba43437",
+            "key": {
+                "type": "hex",
+                "index": 0,
+                "signatureAlgorithm": "ECDSA_P256",
+                "hashAlgorithm": "SHA3_256",
+                "privateKey": "80d92d4ebae26463ec7554170b4f78759335da148785f93806a8d206ee97c7c2"
+            }
+        }
+    },
+
+	"deployments": {
+		"testnet": {
+			"testnet-account": ["ArtContract", "NonFungibleToken", "FUSD", "FungibleToken"]
 		}
-	},
-	"deployments": {}
+	}
 }
