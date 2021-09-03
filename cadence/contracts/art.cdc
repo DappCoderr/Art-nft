@@ -1,4 +1,6 @@
 import NonFungibleToken from "./NonFungibleToken"
+import FUSD from "./FUSD.cdc"
+import FungibleToken from "./FungibleToken"
 
 pub contract ArtContract{
 
@@ -18,10 +20,11 @@ pub contract ArtContract{
         pub let description: String
 
         init(name:String, imageURL:String, description:String){
-            self.artID = artID.nextArtID
+            self.artID = ArtContract.nextArtID
             self.name = name 
             self.imageURL = imageURL
             self.description = description
+            ArtContract.nextArtID = ArtContract.nextArtID + 1
         }}
 
         pub resource Art: NonFungibleToken.INFT{
@@ -30,7 +33,6 @@ pub contract ArtContract{
 
             init(artID:UInt64){
                 let art = ArtContract.data[artID]!
-                ArtContract.totalSupply = ArtContract.totalSupply + 1
                 self.id = ArtContract.totalSupply
                 self.data = MetaData(name: art.name, imageURL: art.imageURL, description: art.description)
             }
@@ -38,9 +40,12 @@ pub contract ArtContract{
 
 
         pub resource interface ArtPublicCollection{
-            pub deposit(token: @NonFungibleToken.NFT)
-            pub getIDs(): [UInt64]
-            pub borrowNFT(id: UInt64): &NonFungibleToken.NFT
+
+            pub fun borrowArt(id: UInt64): &ArtContract.Art
+
+            pub fun deposit(token: @NonFungibleToken.NFT)
+            pub fun getIDs(): [UInt64]
+            pub fun borrowNFT(id: UInt64): &NonFungibleToken.NFT
         }
 
         pub resource Collection: NonFungibleToken.Provider, NonFungibleToken.Receiver, NonFungibleToken.CollectionPublic, ArtPublicCollection {
@@ -71,6 +76,11 @@ pub contract ArtContract{
                 return &self.ownedNFTs[id] as &NonFungibleToken.NFT
             }
 
+            pub fun borrowArt(id: UInt64): &ArtContract.Art {
+                let ref = &self.ownedNFTs[id] as auth &NonFungibleToken.NFT
+                return ref as! &ArtContract.Art
+            }
+
             destroy() {
                 destroy self.ownedNFTs
             }
@@ -80,9 +90,16 @@ pub contract ArtContract{
             return <- create ArtContract.Collection()
         }
 
-        pub fun mintArt(recipient: &{ArtContract.ArtPublicCollection}, artID:UInt64) {
+        pub fun listArt() {}
+
+        pub fun mintArt(recipient: &{ArtContract.ArtPublicCollection}, vault:@FungibleToken.Vault, artID:UInt64) {
+
+            pre{
+                id == ArtContract.totalSupply: "The given id has already minted"
+            }
             var newArt <- create Art(artID:artID)
-            recipient.deposit(token: <-newArt)
+            recipient.deposit(token: <- newArt)
+            ArtContract.totalSupply = ArtContract.totalSupply + 1 as UInt64
         }
     
     init() {
