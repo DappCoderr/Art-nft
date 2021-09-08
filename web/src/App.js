@@ -1,10 +1,20 @@
 import React from "react"
-import {Wallet} from "./component/wallet"
+import Header from "./component/Header"
+// import {Wallet} from "./component/wallet"
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from 'react-router-dom';
 
 export default function App() {
   return (
     <div>
-      <Wallet />
+      <Router>
+      <Header/>
+      {/* <Wallet /> */}
+      </Router>
     </div>
   )
 }

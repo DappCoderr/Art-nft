@@ -3,37 +3,25 @@ import * as t from "@onflow/types";
 
 export const MINT_ART_TRANSACTION = `
 
-import FungibleToken from 0xFUNGIBLETOKEN
 import NonFungibleToken from 0xNONFUNGIBLETOKEN
-import FUSD from 0XFUSTOKEN
-import ArtContract from 0XARTCONTRACT
+import ArtNFT from 0XARTNFT
 
+transaction (price: UFix64, artName:String,artDescription:String,imageURL:String) {
 
-transaction(recipient: Address, price:UFix64, artID: UInt64, name:String, imageURL:String, description:String) {
-
-    let sentVault: @FungibleToken.Vault
-
+    let collection: &NonFungibleToken.Collection
+    
     prepare(signer: AuthAccount) {
-
-        if signer.borrow<&ArtContract.Collection>(from: /storage/ArtCollection) == nil {
-            let collection <- ArtContract.createEmptyCollection()
+        if signer.borrow<&ArtNFT.Collection>(from: /storage/ArtCollection) == nil {
+            
+            let collection <- ArtNFT.createEmptyCollection()
             signer.save(<-collection, to: /storage/ArtCollection)
-            signer.link<&{NonFungibleToken.CollectionPublic, ArtContract.ArtPublicCollection}>(/public/ArtPublicCollection, target:/storage/ArtCollection)
+            signer.link<&{NonFungibleToken.CollectionPublic, ArtNFT.ArtCollectionPublic}>(/public/ArtPublicCollection, target: /storage/ArtCollection)
         }
-
-        let vaultRef = signer.borrow<&FUSD.Vault>(from: /storage/fusdVault)
-        self.sentVault <- vaultRef.withdraw(amount: price)
-
+        self.collection = signer.borrow<&NonFungibleToken.Collection>(from: /storage/ArtCollection) 
+             ?? panic("Could not borrow reference to NFT Collection!")
     }
-
     execute {
-        let recipient = getAccount(recipient)
-
-        let receiver = recipient.getCapability(/public/ArtPublicCollection)
-                        .borrow<&{ArtContract.ArtPublicCollection}>() ?? 
-                        panic("Could not receiver refrence to the art collection")
-
-        ArtContract.mintArt(recipient: receiver, vault: <-self.sentVault, artID:artID, name:name, imageURL:imageURL, description:description)
+        ArtNFT.mintArt(recipient: self.collection,artName:artName,artDescription:artDescription,imageURL:imageURL,price:price)
     }
 }
 `;

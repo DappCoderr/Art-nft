@@ -1,24 +1,22 @@
 import * as fcl from "@onflow/fcl";
 import * as t from "@onflow/types";
 
-export const GET_ART = `
-import FungibleToken from 0xFUNGIBLETOKEN
-import ArtContract from 0XARTCONTRACT
-
-pub fun main(id:UInt64, address:Address): [UInt64] {
-    let account = getAccount(address)
-    let capability = account.getCapability(/public/ArtPublicCollection)
-    let ref = capability.borrow<&{ArtContract.ArtPublicCollection, NonFungibleToken.CollectionPublic}>() 
-        ?? panic("Could not borrow Art refrence")
-
-    return ref.borrowArt(id:id)
-}   
-`;
-
 export async function getArt(arts) {
     return await fcl
       .send([
-        fcl.script(GET_ART),
+        fcl.script(`
+        import FungibleToken from 0xFUNGIBLETOKEN
+        import ArtNFT from 0XARTNFT
+
+        pub fun main(id:UInt64, address:Address): [UInt64] {
+          let account = getAccount(address)
+          let capability = account.getCapability(/public/ArtPublicCollection)
+          let ref = capability.borrow<&{ArtNFT.ArtPublicCollection, NonFungibleToken.CollectionPublic}>() 
+            ?? panic("Could not borrow Art refrence")
+
+          return ref.borrowArt(id:id)
+        }
+        `),
         fcl.args([
           fcl.arg(id, t.UInt64),
           fcl.arg(address, t.Address),
@@ -53,16 +51,16 @@ export async function getArt(arts) {
   }
 
 
-  export async function getUserHaikus(user) {
+  export async function getUserArt(user) {
     return await fcl
     .send([
       fcl.script`
       import NonFungibleToken from 0xNONFUNGIBLETOKEN
-      import ArtContract from 0XARTCONTRACT
+      import ArtNFT from 0XARTNFT
         
-      pub fun main(address: Address): {UInt64: ArtContract.MetaData} {
+      pub fun main(address: Address): {UInt64: ArtNFT.MetaData} {
         let account = getAccount(address)
-        let ref = account.getCapability<&{ArtContract.ArtPublicCollection}>(/storage/ArtCollection)
+        let ref = account.getCapability<&{ArtNFT.ArtPublicCollection}>(/storage/ArtCollection)
                     .borrow() ?? panic("cannot borrow refrence")
         
         let art = ref.listArt()

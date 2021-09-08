@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react"
 import * as fcl from "@onflow/fcl"
+import './wallet.css'
 
 export function Wallet() {
   const [user, setUser] = useState({loggedIn: null})
@@ -7,15 +8,15 @@ export function Wallet() {
 
   if (user.loggedIn) {
     return (
-      <div>
-        <span>{user?.addr ?? "No Address"}</span>
-        <button onClick={fcl.unauthenticate}>Log Out</button>
+      <div className='Wallet1'>
+        <h3>{"You: " + user?.addr ?? "No Address"}</h3>
+        <button  className="btn" onClick={fcl.unauthenticate}>Log Out</button>
       </div>
     )
   } else {
     return (
-      <div>
-        <button onClick={fcl.logIn}>Log In</button>
+      <div className='Wallet'>
+        <button  className="btn" onClick={fcl.logIn}>Log In</button>
       </div>
     )
   }
