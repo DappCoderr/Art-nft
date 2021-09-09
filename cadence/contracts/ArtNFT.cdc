@@ -1,5 +1,5 @@
-import FungibleToken from "./FungibleToken.cdc"
-import FUSD from "./FUSD.cdc"
+import FungibleToken from 0x01
+import FUSD from 0x02
 
 pub contract ArtNFT {
   
@@ -52,7 +52,7 @@ pub contract ArtNFT {
   pub resource interface ArtCollectionPublic {
     pub fun deposit(token: @NFT)
     pub fun getIDs(): [UInt64]
-    pub fun listArt(): {UInt64: Art}
+    pub fun listArts(): {UInt64: Art}
   }
 
   pub resource interface Provider {

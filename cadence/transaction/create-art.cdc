@@ -1,4 +1,4 @@
-import ArtNFT from "../contracts/ArtNFT.cdc"
+import ArtNFT from 0x7cf57145fba43437
 
 transaction(name:String,description:String,imageURL:String,price:UFix64) {
 

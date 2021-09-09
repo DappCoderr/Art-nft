@@ -1,5 +1,5 @@
-import FungibleToken from "../contract/FungibleToken.cdc"
-import ArtNFT from "../contract/ArtNFT.cdc"
+import FungibleToken from 0x9a0766d93b6608b7
+import ArtNFT from 0x7cf57145fba43437
 
 pub fun main(addr: Address): {UInt64: ArtNFT.Art} {
   let account = getAccount(addr)

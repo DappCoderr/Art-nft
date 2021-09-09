@@ -1,9 +1,9 @@
-import ArtNFT from "../contract/ArtNFT.cdc"
+import ArtNFT from 0x7cf57145fba43437
 
 transaction {
-  prepare(acct: AuthAccount) {
+  prepare(signer: AuthAccount) {
     let collection <- ArtNFT.createEmptyCollection()
-    acct.save<@ArtNFT.Collection>(<-collection, to: /storage/CollectionStoragePath)
-    acct.link<&{ArtNFT.CollectionPublic}>(/public/CollectionPublicPath, target: /storage/CollectionStoragePath)
+    signer.save<@ArtNFT.Collection>(<-collection, to: /storage/CollectionStoragePath)
+    signer.link<&{ArtNFT.ArtCollectionPublic}>(/public/CollectionPublicPath, target: /storage/CollectionStoragePath)
   }
 }
