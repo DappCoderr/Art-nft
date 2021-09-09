@@ -1,8 +1,8 @@
 import React from 'react'
 import './Header.css'
-import {Wallet} from './wallet'
+import {Wallet} from "../wallet"
 
-const Header = () => {
+const HeaderpageHeader = () => {
     return (
         <section className="Header">
           <div id="Hero">
@@ -15,4 +15,4 @@ const Header = () => {
       );
 }
 
-export default Header
+export default HeaderpageHeader

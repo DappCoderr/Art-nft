@@ -1,14 +1,26 @@
-import React from 'react';
+import {StrictMode, React} from 'react';
 import ReactDOM from 'react-dom';
+import { HashRouter as Router } from "react-router-dom";
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './config'
 
+
+function Providers({ children }) {
+  return (
+    <StrictMode>
+          <Router>
+            {children}
+          </Router>
+    </StrictMode>
+  );
+}
+
 ReactDOM.render(
-  <React.StrictMode>
+  <Providers>
     <App />
-  </React.StrictMode>,
+  </Providers>,
   document.getElementById('root')
 );
 
