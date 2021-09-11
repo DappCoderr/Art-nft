@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function Collection() {
+const Home = () => {
     return (
         <div>
-            
+            Home Page
         </div>
     )
 }
+
+export default Home
