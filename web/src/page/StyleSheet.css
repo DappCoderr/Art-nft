@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap");
+
+.Header {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  padding-left: 4%;
+  padding-right: 4%;
+  justify-content: space-between;
+  align-items: center;
+  background: black;
+  color: white;
+  /* border: 1px solid rgba(0, 0, 0, 0.3); */
+  box-sizing: border-box;
+}
+
+.Logo {
+  color:white;
+  font-weight: bolder;
+  font-size: 30px;
+}
+
+.Logo:hover {
+  cursor: pointer;
+}
+
+.Heading-Bar-Homepage {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 400px;
+  color: #000000;
+}
+
+.Heading-LoggedIn {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  padding-left: 4%;
+  padding-right: 4%;
+  justify-content: space-between;
+  align-items: center;
+  background: black;
+  color: white;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.LoggedIn{
+  justify-content: flex-end;
+}
+
+.Flow-Icon {
+  width: 40px;
+  height: 38px;
+  border-radius: 50%;
+}
+
+.My-Wallet {
+  width: 74px;
+  height: 18px;
+}
+
+.Header-Buttons {
+  border: 0px;
+  background: white;
+  font-weight: bolder;
+  height: 30px;
+  border: none;
+}
+
+.Header-Buttons:hover {
+  cursor: pointer;
+  border-bottom: 2px solid #a0d99f;
+}
+
+.User-Address {
+  justify-content: flex-end;
+  font-weight: bolder;
+  font-size: 15px;
+}
+
+.icon-Button {
+  border: 0px;
+  background: none;
+  width: 140px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon-Button:hover {
+  cursor: pointer;
+}
