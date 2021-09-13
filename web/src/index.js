@@ -1,16 +1,18 @@
-import * as fcl from '@onflow/fcl';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Providers from './providers/Providers.comp';
+import Routes from './components/Routes.comp'
+import { ROUTES } from './config/routes.config';
+
 import './index.css';
-import App from './App';
-import {BrowserRouter as Router} from 'react-router-dom';
-import "./config"
+import './components/Atoms.css'
+import Header from "../src/components/Header/Header"
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
-  </React.StrictMode>,
+  <Providers>
+    <Header/>
+    <Routes routes={ROUTES} />
+  </Providers>,
   document.getElementById('root')
 );

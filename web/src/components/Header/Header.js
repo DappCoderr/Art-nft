@@ -1,7 +1,6 @@
-import {Redirect} from "react-router-dom"
-import User from "./User";
-
 import './Header.css';
+import Navbar from "../Navbar"
+import Wallet from "../AccountDetails"
 
 function Header(props) {
   return (
@@ -10,8 +9,9 @@ function Header(props) {
         <h2 className="subtitle">Art NFT</h2>
       </div>
       <div>
-        <User/>
+      <Navbar/>
       </div>
+      <Wallet/>
     </section>
   );
 }

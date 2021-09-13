@@ -1,47 +1,26 @@
-import classNames from 'classnames';
+import React from 'react'
+import ArtList from '../components/ArtList'
+import Content from '../components/Content'
+import { useUser } from '../providers/UserProvider'
 
-function Collection(props) {
-  const isLoading = props.collection === undefined;
-  const hasCollection = (
-    !isLoading &&
-    props.collection !== null
-  );
-  const collectionIsEmpty = (
-    props.collection &&
-    props.collection.length === 0
-  );
 
-  if (isLoading) {
-    return (
-      <div className="notification">
-        Loading...
-      </div>
-    );
-  } if (!hasCollection) {
-    return props.noCollectionNotification;
-  } else if (collectionIsEmpty) {
-    return props.emptyCollectionNotification;
-  } else {
-    return (
-      <div className="frameGrid block">
-        {props.collection && props.collection.map((picture) => {
-          const isInteractive = props.onFocus !== undefined;
-          return (
-            <div
-              key={picture.pixels}
-              className={classNames({
-                frameCell: true,
-                isFocused: props.focusedPicture === picture,
-                isInteractive: isInteractive
-              })}
-              onClick={() => isInteractive && props.onFocus(picture)}
-            >
-            </div>
-          );
-        })}
-      </div>
-    );
-  }
+export default function Collection() {
+  const { collection, createCollection, deleteCollection, userArts } = useUser()
+
+  return (
+    <>
+      <Content
+        title={<><span className="highlight">My Collection</span></>}
+        subtitle={<><span className="highlight">Please enable collection to view your Art</span></>}
+      />
+
+      {!collection ?
+        <div className="btn btn-round" onClick={() => createCollection()}>Enable Collection</div> :
+        <>
+          <ArtList arts={userArts} />
+          <div className="btn btn-round" onClick={() => deleteCollection()}>Delete Collection</div>
+        </>
+      }
+    </>
+  )
 }
-
-export default Collection;
