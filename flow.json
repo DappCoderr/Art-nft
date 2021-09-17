@@ -1,6 +1,6 @@
 {
 	"contracts": {
-		"ArtNFT": "./cadence/contracts/ArtNFT.cdc",
+		"NFTV1": "./cadence/contracts/NFTV1.cdc",
 		"FUSD": "./cadence/contracts/FUSD.cdc",
 		"NonFungibleToken": "./cadence/contracts/NonFungibleToken.cdc",
 		"FungibleToken":  "./cadence/contracts/FungibleToken.cdc"
@@ -25,7 +25,7 @@
 
 	"deployments": {
 		"testnet": {
-			"testnet-account": ["ArtNFT"]
+			"testnet-account": ["NFTV1"]
 		}
 	}
 }

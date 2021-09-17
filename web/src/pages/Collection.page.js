@@ -1,11 +1,11 @@
 import React from 'react'
-import ArtList from '../components/ArtList'
+// import ArtList from '../components/ArtList'
 import Content from '../components/Content'
 import { useUser } from '../providers/UserProvider'
 
 
 export default function Collection() {
-  const { collection, createCollection, deleteCollection, userArts } = useUser()
+  const { collection, createCollection, deleteCollection} = useUser()
 
   return (
     <>

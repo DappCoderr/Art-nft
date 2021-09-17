@@ -15,7 +15,7 @@ export default function Wallet() {
       </div>
       {!balance ?
         <div className="btn btn-small" onClick={() => createFUSDVault()}>
-          ⚠️ Enable FUSD
+          Enable FUSD
         </div>
         :
         <div className="wallet__item">

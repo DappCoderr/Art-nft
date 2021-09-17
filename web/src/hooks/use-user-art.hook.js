@@ -2,7 +2,7 @@ import { useEffect, useReducer } from 'react'
 import { userArtReducer } from '../reducer/userArtReducer'
 
 export default function useUserArts() {
-  const [state, dispatch] = useReducer(userArtReducer, {
+  const [state] = useReducer(userArtReducer, {
     oading: false,
     error: false,
     data: []

@@ -1,10 +1,10 @@
-class ArtClass {
-  constructor(id, team, name, price, serialNumber) {
+class Art {
+  constructor(id, name, description, imageURL, price) {
     this._id = id
-    this.team = team
     this.name = name
+    this.description = description
+    this.imageURL = imageURL
     this.price = price || 0
-    this.serialNumber = serialNumber || 0
   }
 
   get type() {
@@ -21,5 +21,5 @@ class ArtClass {
 }
 
 
-export default ArtClass
+export default Art
 
