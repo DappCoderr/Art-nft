@@ -5,6 +5,7 @@
   cursor: pointer;
   transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   font-size: 22px;
+  margin-bottom: 5vh;
 }
 
 .btn-bg {

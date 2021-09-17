@@ -7,10 +7,6 @@ class Art {
     this.price = price || 0
   }
 
-  get type() {
-    return "Art"
-  }
-
   get id() {
     return `Art${this._id}`;
   } 
@@ -19,7 +15,6 @@ class Art {
     return `${process.env.PUBLIC_URL}/Images/${this.id}.png`
   }
 }
-
 
 export default Art
 
