@@ -21,7 +21,7 @@ export default function ArtCard({ art, store }) {
          <img className={`art-card__image`} src={image} alt="Art" />
         <br />
         <h3 className="art-card__title">{name}</h3>
-        <p className="art-card__info">{description}</p>
+        {/* <p className="art-card__info">{description}</p> */}
       </div>
 
       {!owned && <ArtButton />}

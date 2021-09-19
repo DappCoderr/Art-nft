@@ -22,10 +22,10 @@
   cursor: pointer;
 }
 
-.art-card__image:hover {
+/* .art-card__image:hover {
   animation: tada;
   animation-duration: .8s;
-}
+} */
 
 .art-card__title {
   margin: 0;
