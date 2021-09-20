@@ -26,7 +26,7 @@ export default function ArtCard({ art, store }) {
 
       {!owned && <ArtButton />}
 
-      {store && owned && <div className="collected">Collected</div>}
+      {store && owned && <div className="collected">Sold</div>}
     </div >
   )
 }
