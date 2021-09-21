@@ -1,3 +1,6 @@
+## Generate Key Pair with the Flow CLI
+flow keys generate
+
 ## Deploy contract on testnet
 flow project deploy --network=testnet
 
@@ -16,13 +19,25 @@ flow transactions send --network=testnet --signer=testnet-account cadence/transa
 flow transactions send --network=testnet --signer=testnet-account cadence/transaction/create-collection.cdc 
 
 
+## Transaction- Create FUSD Vault
+flow transactions send --network=testnet --signer=testnet-account cadence/transaction/create-vault.cdc
+
+
 ## Script- Check collection on testnet
 flow scripts execute --network=testnet cadence/script/check-collection.cdc --agr Address:0x7cf57145fba43437
 
+## Script- Check FUSD Vault 
+flow scripts execute --network=testnet cadence/script/check-FUSDVault.cdc --arg Address:0x57022d35312793f9
 
 ## Script- Get FUSD balance on testnet
 flow scripts execute --network=testnet cadence/script/get-FUSD-balance.cdc --arg Address:0x7cf57145fba43437
 
-
 ## Script- Get list art template
 flow scripts execute --network=testnet cadence/script/list-art-template.cdc
+
+
+0x57022d35312793f9
+57a7b9b05ce9edd310489e003110ec59548d7277b4b7f53a5e7ecca770f91998
+
+0x7cf57145fba43437
+80d92d4ebae26463ec7554170b4f78759335da148785f93806a8d206ee97c7c2

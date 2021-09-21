@@ -1,4 +1,4 @@
-import ArtNFT from 0x7cf57145fba43437
+import ArtNFT from 0x57022d35312793f9
   
   pub fun main(addr: Address): Bool {
     let ref = getAccount(addr).getCapability<&{ArtNFT.ArtCollectionPublic}>(/public/CollectionPublicPath).check()

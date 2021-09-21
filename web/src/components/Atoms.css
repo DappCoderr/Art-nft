@@ -11,7 +11,7 @@
 .btn-bg {
   background: white;
   padding: 0.5rem 1rem;
-  mix-blend-mode: screen; /* This makes the cutout text possible */
+  /* mix-blend-mode: screen;  */
   color: black;
 }
 
@@ -55,4 +55,45 @@
 .wiggling:hover {
   animation: tada;
   animation-duration: 1s;
+}
+
+.cc{
+  color: black;
+}
+
+.dc{
+  color: black;
+}
+
+.cw{
+  /* background-color: black; */
+  border: black solid 2px;
+}
+
+.Minter{
+  color: black;
+  font-family: sans-serif;
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.nft-input{
+  background-color: whitesmoke;
+  padding: 10px;
+  border-radius: 3px;
+  width: 28vh;
+  font-family: sans-serif;
+  font-size: 15px;
+  /* font-weight: bolder; */
+}
+
+.createArtButton{
+  background-color: black;
+  padding: 10px;
+  margin-bottom: 50px;
+  cursor: pointer;
+  font-weight: bolder;
+  font-size: 16px;
+  color: white;
+  border-radius: 5px;
 }

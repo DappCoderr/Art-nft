@@ -1,6 +1,6 @@
 import FungibleToken from 0x9a0766d93b6608b7
 import FUSD from 0x7cf57145fba43437
-import ArtNFT from 0x7cf57145fba43437
+import ArtNFT from 0x57022d35312793f9
 
 
 transaction(artID: UInt64, amount: UFix64) {

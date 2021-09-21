@@ -15,11 +15,8 @@ export default function Collection() {
       />
 
       {!collection ?
-        <div className="btn btn-round" onClick={() => createCollection()}>Enable Collection</div> :
-        <>
-          {/* <ArtList arts={userArts} /> */}
-          <div className="btn btn-round" onClick={() => deleteCollection()}>Delete Collection</div>
-        </>
+        <div className="btn btn-round cc" onClick={() => createCollection()}>Enable Collection</div> :
+        <div className="btn btn-round dc" onClick={() => deleteCollection()}>Delete Collection</div>
       }
     </>
   )

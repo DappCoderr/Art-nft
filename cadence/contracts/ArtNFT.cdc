@@ -1,5 +1,5 @@
-import FungibleToken from 0x01
-import FUSD from 0x02
+import FungibleToken from 0x9a0766d93b6608b7
+import FUSD from 0xe223d8a629e49c68
 
 pub contract ArtNFT {
   

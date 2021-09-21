@@ -1,3 +1,4 @@
+export const CREATE_ART = `
 import ArtNFT from 0x57022d35312793f9
 
 transaction(name:String,description:String,imageURL:String,price:UFix64) {
@@ -12,3 +13,4 @@ transaction(name:String,description:String,imageURL:String,price:UFix64) {
         self.adminRef.createArt(name:name,description:description,imageURL:imageURL,price:price)
     }
 }
+`

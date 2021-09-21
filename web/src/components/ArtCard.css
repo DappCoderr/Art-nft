@@ -1,7 +1,7 @@
 .art-card__border {
   position: relative;
   margin-bottom: 2.5rem;
-  border: white solid 2px;
+  border: black solid 2px;
   margin: 8px;
   border-radius: 5px;
 }
@@ -29,8 +29,9 @@
 
 .art-card__title {
   margin: 0;
-  font-family: "Monument Regular";
+  font-family: sans-serif;
   font-size: 1.3rem;
+  color: black;
 }
 
 .art-card__info {

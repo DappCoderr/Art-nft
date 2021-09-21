@@ -1,9 +1,15 @@
 {
 	"contracts": {
-		"NFTV1": "./cadence/contracts/NFTV1.cdc",
+		"ArtNFT": "./cadence/contracts/ArtNFT.cdc",
 		"FUSD": "./cadence/contracts/FUSD.cdc",
 		"NonFungibleToken": "./cadence/contracts/NonFungibleToken.cdc",
-		"FungibleToken":  "./cadence/contracts/FungibleToken.cdc"
+		"FungibleToken": {
+            "source": "./cadence/contracts/FungibleToken.cdc",
+            "aliases": {
+                "testnet": "0x9a0766d93b6608b7",
+                "mainnet": "0xf233dcee88fe0abe"
+            }
+        }
 	},
 	"networks": {
 		"mainnet": "access.mainnet.nodes.onflow.org:9000",
@@ -12,20 +18,20 @@
 
 	"accounts": {
         "testnet-account": {
-            "address": "0x7cf57145fba43437",
+            "address": "0x57022d35312793f9",
             "key": {
                 "type": "hex",
                 "index": 0,
                 "signatureAlgorithm": "ECDSA_P256",
                 "hashAlgorithm": "SHA3_256",
-                "privateKey": "80d92d4ebae26463ec7554170b4f78759335da148785f93806a8d206ee97c7c2"
+                "privateKey": "57a7b9b05ce9edd310489e003110ec59548d7277b4b7f53a5e7ecca770f91998"
             }
         }
     },
 
 	"deployments": {
 		"testnet": {
-			"testnet-account": ["NFTV1"]
+			"testnet-account": ["ArtNFT"]
 		}
 	}
 }
