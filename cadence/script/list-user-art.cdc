@@ -1,5 +1,5 @@
 import FungibleToken from 0x9a0766d93b6608b7
-import ArtNFT from 0x57022d35312793f9
+import ArtNFT from 0x1e890cc216ff88c3
 
 pub fun main(addr: Address): {UInt64: ArtNFT.Art} {
   let account = getAccount(addr)

@@ -53,11 +53,11 @@ export default function useUserArts(user, collection, getFUSDBalance) {
       let res = await mutate({
         cadence: MINT_ART,
         limit: 55,
-        args: (arg, t) => [arg(artID, t.UInt64), arg(amount, t.UFix64)]
+        args: (arg, t) => [arg(artID, t.UInt64)]
       })
       addTx(res)
       await tx(res).onceSealed()
-      await getFUSDBalance()
+      // await getFUSDBalance()
     } catch (error) {
       console.log(error)
     }

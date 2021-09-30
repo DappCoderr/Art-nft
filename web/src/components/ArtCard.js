@@ -9,7 +9,7 @@ export default function ArtCard({ art, store }) {
 
   const ArtButton = () => (
     <div
-      onClick={() => mintArt(id, price)}
+      onClick={() => mintArt(id)}
       className="btn btn-bordered btn-light btn-art">
       {parseInt(price)} FUSD
     </div>

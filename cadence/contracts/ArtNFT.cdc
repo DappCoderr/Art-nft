@@ -119,12 +119,12 @@ pub contract ArtNFT {
     return <- create ArtNFT.Collection()
   }
 
-    pub fun mintArt(artID: UInt64, paymentVault: @FungibleToken.Vault): @ArtNFT.NFT {
+    pub fun mintArt(artID: UInt64): @ArtNFT.NFT {
     pre {
       self.artDatas[artID] != nil : "Could not mint Art: Art with given ID does not exist."
-      paymentVault.balance >= self.artDatas[artID]!.price : "Could not mint Art: payment balance insufficient."
+      // paymentVault.balance >= self.artDatas[artID]!.price : "Could not mint Art: payment balance insufficient."
     }
-    destroy paymentVault
+    // destroy paymentVault
     return <- create NFT(artID: artID)
   }
 
@@ -135,7 +135,7 @@ pub contract ArtNFT {
 
   init(){
     self.totalSupply = 0 as UInt64
-    self.nextArtId = 0 as UInt64
+    self.nextArtId = 1 as UInt64
     self.artDatas = {}
 
     self.account.save<@Collection>(<-create Collection(), to: /storage/CollectionStoragePath)

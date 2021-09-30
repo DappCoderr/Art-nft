@@ -3,28 +3,27 @@ import React from 'react'
 import Content from '../components/Content'
 import { CREATE_ART } from '../flow/create-art.tx'
 
-const Create = () => {
+const Create = () => { 
+
+    // const [name, setName] = useState("");
+    // const [description, setDescription] = useState("");
+    // const [url, setURL] = useState("");
+    // const [price, setPrice] = useState("");
 
 
-    const [name, setName] = useState("");
-    const [description, setDescription] = useState("");
-    const [url, setURL] = useState("");
-    const [price, setPrice] = useState("");
-
-
-    const CreateArt = async (name,description,imageURL,price) => {
-        try{
-            let res = await mutate({
-                cadence: CREATE_ART,
-                limit: 55,
-                args: (arg,t) => [arg(name,t.String), arg(description,t.String), arg(imageURL,t.String), arg(price,t.UFix64)]
-            })
-            addTx(res)
-            await tx(res).onceSealed()
-        }catch(error){
-            console.log(error)
-        }
-    }
+    // const CreateArt = async (name,description,imageURL,price) => {
+    //     try{
+    //         let res = await mutate({
+    //             cadence: CREATE_ART,
+    //             limit: 55,
+    //             args: (arg,t) => [arg(name,t.String), arg(description,t.String), arg(imageURL,t.String), arg(price,t.UFix64)]
+    //         })
+    //         addTx(res)
+    //         await tx(res).onceSealed()
+    //     }catch(error){
+    //         console.log(error)
+    //     }
+    // }
 
     return (
         <>
@@ -39,32 +38,32 @@ const Create = () => {
                         className='nft-input'
                         type="text"
                         placeholder="e.g. My first NFT!"
-                        onChange={(event) => setName(event.target.value)}
+                        // onChange={(event) => setName(event.target.value)}
                     />
                 <h4>Art Description</h4>
                     <input
                         className='nft-input'
                         type="text"
                         placeholder="e.g. Even cooler than cryptokitties ;)"
-                        onChange={(event) => setDescription(event.target.value)}
+                        // onChange={(event) => setDescription(event.target.value)}
                     />
                 <h4>Image URL</h4>
                     <input
                         className='nft-input'
                         type="text"
                         placeholder="e.g. https://gateway.pinata.cloud/ipfs/<hash>"
-                        onChange={(event) => setURL(event.target.value)}
+                        // onChange={(event) => setURL(event.target.value)}
                     />
                 <h4>Price</h4>
                     <input
                         className='nft-input'
                         type="text"
                         placeholder="10.0 FUSD"
-                        onChange={(event) => setPrice(event.target.value)}
+                        // onChange={(event) => setPrice(event.target.value)}
                     />
             </form>
             <br></br>
-            <button className="createArtButton" onClick={CreateArt}>Create Art</button>
+            <button className="createArtButton" >Create Art</button>
             </div>
         </>
     )

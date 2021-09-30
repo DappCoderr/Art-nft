@@ -18,13 +18,13 @@
 
 	"accounts": {
         "testnet-account": {
-            "address": "0x57022d35312793f9",
+            "address": "0x1e890cc216ff88c3",
             "key": {
                 "type": "hex",
                 "index": 0,
                 "signatureAlgorithm": "ECDSA_P256",
                 "hashAlgorithm": "SHA3_256",
-                "privateKey": "57a7b9b05ce9edd310489e003110ec59548d7277b4b7f53a5e7ecca770f91998"
+                "privateKey": "1e144d81dcb88591bf034daac9c971c1171bef34d0e215ed75bad5352a5f707c"
             }
         }
     },
