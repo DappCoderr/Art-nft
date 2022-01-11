@@ -24,7 +24,7 @@ flow transactions send --network=testnet --signer=testnet-account cadence/transa
 
 
 ## Script- Check collection on testnet
-flow scripts execute --network=testnet cadence/script/check-collection.cdc --agr Address:0x7cf57145fba43437
+flow scripts execute --network=testnet cadence/script/check-collection.cdc --arg Address:0x7cf57145fba43437
 
 
 ## Script- Check FUSD Vault 
@@ -41,6 +41,7 @@ flow scripts execute --network=testnet cadence/script/list-art-template.cdc
 
 ## Remove contract from testnet
 flow accounts remove-contract --network=testnet --signer=testnet-account2 ArtNFT
+flow accounts update-contract <name> <filename>
 
 
 0x57022d35312793f9
